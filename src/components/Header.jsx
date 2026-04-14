@@ -2,7 +2,7 @@ function Header() {
   return (
     <header className="header-bar">
       <div>
-        <p className="header-kicker">RYDE Programs</p>
+        <p className="header-kicker">City sanitation lookup</p>
         <h1>Corner Brook Garbage Collection</h1>
       </div>
 
