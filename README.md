@@ -1,37 +1,44 @@
 # Corner Brook Garbage Collection Dashboard
 
-A lightweight geospatial decision-support tool for turning a Corner Brook civic address into a clear collection-zone result, an upcoming pickup date, and a readable service view.
+An interactive geospatial dashboard that turns a Corner Brook civic address into a clear garbage collection zone, the next scheduled pickup, and a map-backed explanation of the result.
 
-This project frames municipal waste collection as a spatial data problem. It links address search, geographic zone boundaries, and calendar rules into one interface so residents can move from location input to service insight in a few seconds.
+## Overview
 
-## Project Snapshot
+This project treats municipal waste collection as a spatial data problem. It combines address lookup, geographic zone boundaries, and collection schedule logic so a user can move from location input to service insight in a single workflow.
 
-| Input | Transformation | Output |
+Instead of reading static schedules in isolation, users can validate the result visually through synchronized map and calendar views.
+
+## Data Flow
+
+| Stage | Data Operation | User Result |
 | --- | --- | --- |
-| Civic address | Geocoding + point-in-polygon zone matching | Collection zone |
-| Zone assignment | Schedule lookup | Next pickup date |
-| Schedule data | Map and calendar rendering | Resident-facing decision support |
+| Address search | Geocode a civic address in Corner Brook | Valid location match |
+| Spatial classification | Match coordinates to a collection polygon | Correct collection zone |
+| Schedule lookup | Retrieve zone-specific pickup dates | Next collection date |
+| Visual delivery | Render the result in map and calendar views | Clear, explainable output |
 
-## Analytical Workflow
+## Why It Matters
 
-From a data science perspective, the application behaves like a compact spatial analytics pipeline:
-1. Search for a Corner Brook address.
-2. Convert the search result into coordinates.
-3. Match those coordinates against local collection-zone polygons.
-4. Retrieve the correct collection schedule for the resolved zone.
-5. Present the outcome through synchronized map and calendar views.
+From a data science perspective, the application acts as a compact spatial analytics pipeline:
+1. accept a location query
+2. transform it into coordinates
+3. classify it against geographic boundaries
+4. connect the classification to structured schedule data
+5. present the result as an interpretable decision-support view
+
+The value of the project is not just in displaying data, but in translating municipal service data into something precise, queryable, and easier for residents to understand.
 
 ## Core Features
 
-- Address lookup with Corner Brook-focused search behavior
-- Geographic zone classification using local boundary data
-- Interactive Leaflet map for visual validation of service areas
-- Calendar-based pickup schedule display with recycling context
-- Local browser persistence for selected address and zone
+- Civic address lookup focused on Corner Brook locations
+- Collection-zone assignment using local boundary geometry
+- Interactive Leaflet map for visual verification
+- Pickup schedule and recycling context by matched zone
+- Local persistence of selected address and zone
 
 ## Tech Stack
 
-React and Vite power the interface, Leaflet handles spatial visualization, and local zone and schedule datasets provide the service logic behind the dashboard.
+React and Vite power the interface, Leaflet handles geospatial visualization, and local zone and schedule datasets provide the underlying service logic.
 
 ## Run Locally
 
